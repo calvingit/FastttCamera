@@ -162,6 +162,7 @@
 - (void)applicationWillEnterForeground:(NSNotification *)notification
 {
     [self _setupCaptureSession];
+    self.isCapturingImage = NO;
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)notification
@@ -181,6 +182,7 @@
 - (void)applicationDidEnterBackground:(NSNotification *)notification
 {
     [self _teardownCaptureSession];
+    self.isCapturingImage = YES;
 }
 
 #pragma mark - Autorotation
