@@ -526,7 +526,8 @@
     });
 #else    
     UIDeviceOrientation previewOrientation = [self _currentPreviewDeviceOrientation];
-
+    if(!videoConnection.isActive)
+        return;
     [_stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
                                                    completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error)
      {
